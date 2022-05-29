@@ -1,201 +1,202 @@
-# Chapitre 3 : Protocoles et communication réseau
 
-## Structure d'une communication
+# Kapitel 3: Protokolle und Netzwerkkommunikation
 
-Toute communication peut être représenté par 5 elements principaux et la communication etre ordinateurs ne fait exception : 
+## Struktur einer Kommunikation
 
-* La source du méssage à émettre (La machine source)
-* L'émétteur du signal (la carte réseau source)
-* Le support de transmission (cuivre, air ou fibre optique)
-* Récépteur du message (carte réseau de destination)
-* Destinataire du message (machine de destination)
+Jede Kommunikation kann durch 5 Hauptelemente dargestellt werden und die Kommunikation zwischen Computern ist keine Ausnahme:
 
-Pour convenablement communiquer, les machines doivent s'accorder sur une langue partagée pour communiquer. C'est cela que l'on apelle *protocole*. Il en existre un grand nombre qui sont normalisés pour permettre une communication corrècte. ce protocol définis les informations que la machine source doit fournir pour se faire comprendre par le réseau.
+* Die Quelle der zu sendenden Nachricht (Die Quellmaschine)
+* Der Signalsender (die Quellnetzwerkkarte)
+* Das Übertragungsmedium (Kupfer, Luft oder Glasfaser)
+* Nachrichtenempfänger (Zielnetzwerkkarte)
+* Nachrichtenempfänger (Zielmaschine)
 
-Pour corrèctement transmettre le message, les machines utilisent non pas un seul protocol mais une suite de protocol ajoutant chaqun d'eu de nouvelles informations permettant de transmettre le message. On apelle cette organisation la *suite de protocoles*. Ainsi le message à envoyé est encapsulé par chacun des protocoles permettant sa transmission.
+Um richtig zu kommunizieren, müssen sich Maschinen auf eine gemeinsame Kommunikationssprache einigen. Dies wird *Protokoll* genannt. Es gibt eine große Anzahl von ihnen, die standardisiert sind, um eine korrekte Kommunikation zu ermöglichen. Dieses Protokoll definiert die Informationen, die der Quellcomputer bereitstellen muss, um vom Netzwerk verstanden zu werden.
 
-### Codage
+Um die Nachricht korrekt zu übertragen, verwenden die Maschinen nicht ein einziges Protokoll, sondern eine Reihe von Protokollen, die jedem von ihnen neue Informationen hinzufügen, damit die Nachricht übertragen werden kann. Diese Organisation wird als *Suite of Protocols* bezeichnet. Somit wird die zu sendende Nachricht von jedem der Protokolle eingekapselt, die ihre Übertragung ermöglichen.
 
-Pour les besoins de la transmission, les données qui vons etre envoyés doivent subir une transformation permettant de les rendre compatibles avec le support de trsnmission et le protocol utilisé. C'est cette opération que l'on apelle *codage*
+### Codierung
 
-> Exemple : Dans une conversation téléphonique, chaque son reçu est codé sous forme de bit puis envoyé au destinataire qui reconstitue le son a parti des informations reçues.
+Für die Übertragung müssen die zu versendenden Daten einer Transformation unterzogen werden, um sie mit dem verwendeten Übertragungsmedium und dem verwendeten Protokoll kompatibel zu machen. Diese Operation wird *Codierung* genannt
 
-### Encapsulation
+> Beispiel: Bei einem Telefongespräch wird jeder empfangene Ton in Form eines Bits kodiert und an den Empfänger gesendet, der den Ton aus den erhaltenen Informationen rekonstruiert.
 
-Le message brut, même codé, ne peut etre envoyé tel quel sur le réseau, il faut lui fournir d'autre informations comme le destinatire de la lettre ou l'éxpéditeur. Ces informations sont ajoutés au début ou a la fin du message à envoyé. L'encapsulation consiste alors en l'ajout d'informations au message brut en fonction des informations requises par le réseau. L'ensemble du message encapsulé est appelé *trame* et peut etre envoyé sur le réseau. Il peut y avoir plusieurs phases d'encapsulation d'un message.
+### Verpackung
 
-Par exemple dans le cas d'une trame HTTP on trouve le contenu de la page a affcicher dans les données utilisateur puis une sére d'encapsulation ajoutent des informations a la trame permettant de préciser sa destination, la version des protocoles utilisés, et bien d'autres choses.
+Die Rohnachricht, auch verschlüsselt, kann nicht so wie sie im Netz ist versendet werden, sie muss mit weiteren Informationen wie dem Empfänger des Briefes oder dem Absender versehen werden. Diese Informationen werden am Anfang oder am Ende der zu sendenden Nachricht hinzugefügt. Die Kapselung besteht dann aus dem Hinzufügen von Informationen zur Rohnachricht gemäß den vom Netzwerk benötigten Informationen. Die gesamte eingekapselte Nachricht wird *Frame* genannt und kann über das Netzwerk gesendet werden. Es kann mehrere Kapselungsphasen einer Nachricht geben.
 
-![Une trame HTTP](img/tramehttp.png)
+Bei einem HTTP-Frame wird beispielsweise der Inhalt der anzuzeigenden Seite in den Benutzerdaten gefunden, dann fügt eine Kapselungsserie Informationen zum Frame hinzu, um sein Ziel, die Version der verwendeten Protokolle und viele andere anzugeben .'anderes Zeug.
 
-### Taille
+![Ein HTTP-Frame](img/framehttp.png)
 
-Pour réspècte le protocol utilisé pour la transmission, le message peut etre divisée en plusieurs *trames* permettant ainsi de ne pas engorger le réseau.
+### Schneiden
 
-### Syncronisation et gestion des trames
+Um das für die Übertragung verwendete Protokoll zu respektieren, kann die Nachricht in mehrere *Frames* unterteilt werden, wodurch das Netzwerk nicht verstopft wird.
 
-Lorsque deux hotes envoient une trame au même moment sur le réseau, il se produit une *collision*. Pour éviter ce genre de chose, le protocol doit définir une *méthode d'acces* définissant le moment ou les hotes doivent parler et que faire en cas d'érreur.
+### Frame-Synchronisation und -Verwaltung
 
-Pour éviter d'engorger le réseau, le protocol doit aussi spécifier un système de *controle de flux* pour donnér un chance à chaque hote d'envoyer des données sur le réseau.
+Wenn zwei Hosts gleichzeitig einen Frame im Netzwerk senden, kommt es zu einer *Kollision*. Um so etwas zu vermeiden, muss das Protokoll eine *Zugriffsmethode* definieren, die definiert, wann die Hosts sprechen sollen und was im Fehlerfall zu tun ist.
 
-Enfin, le protocol doit aussi définir un *délai d'attente*, qui dépassé, autorisera l'hote émétteur sans réponse de considèrer qu'aucune réponse n'à été donnée.
+Um eine Verstopfung des Netzwerks zu vermeiden, muss das Protokoll auch ein Schema zur *Flusskontrolle* angeben, um jedem Host die Möglichkeit zu geben, Daten über das Netzwerk zu senden.
 
-### Méthode d'envoie
+Schließlich muss das Protokoll auch ein *Timeout* definieren, dessen Überschreitung es dem sendenden Host ohne Antwort ermöglicht, davon auszugehen, dass keine Antwort gegeben wurde.
 
-L'envoie d'une trame peut s'éfféctuer de 3 façon différentes :
+### Sendemethode
 
-* **Monodiffusion** On envoie la trame a un seul hote
-* **Multidiffusion** On envoie la trame a un groupe d'hotes
-* **Diffusion** On envoie la trame a tout les hotes du réseau
+Das Senden eines Frames kann auf 3 verschiedene Arten erfolgen:
 
-Chacune des trames peut demander ou non un accusé de récéption.
+* **Unicast** Wir senden den Frame an einen einzigen Host
+* **Multicast** Wir senden den Frame an eine Gruppe von Hosts
+* **Broadcast** Wir senden den Frame an alle Hosts im Netzwerk
 
-## Protocol réseau
+Jeder der Rahmen kann eine Bestätigung erfordern oder nicht.
 
-Les protocols qui régissent les réseaux sont des protocoles définis, précis et accèptés par toutes les machines qui l'utilisent. Il existe de nombreux protocoles et ces protocols sont organisés en *suites de protocols* permettant une bonne communication.
+## Netzwerkprotokoll
 
-Un protocol peut etre :
+Die Protokolle, die die Netzwerke regeln, sind definierte, präzise und von allen Maschinen akzeptierte Protokolle, die sie verwenden. Es gibt viele Protokolle und diese Protokolle sind in *Protokollsuiten* organisiert, um eine gute Kommunikation zu ermöglichen.
 
-* **Ouvert** Il est alors normalisé par un organisme de normalisation et peut etre utilisé partout et par tous
-* **Propriétaire** Il est alors normalisé par l'entreprise qui l'a crée et ne peut etre utilisé que par cette même entreprise.
+Ein Protokoll kann sein:
 
-Il existe de nombreuses suites des protocoles mais en voici quelques exemples
+* **Offen** Es wird dann von einem Standardisierungsgremium standardisiert und kann überall und von allen verwendet werden
+* **Eigentümer** Es wird dann von der Firma, die es erstellt hat, standardisiert und kann nur von dieser gleichen Firma verwendet werden.
 
-![Quelques piles de protocoles](img/protocoles.png)
+Es gibt viele Arten von Protokollen, aber hier sind einige Beispiele
 
-La suite de protocoles TCP/IP se compose aujourd'hui beaucoup de protocoles donnés dans la figure suivante.
+![Einige Protokollstacks](img/protocols.png)
 
-![Suite de protocoles TCP/IP](img/protocolsEnCouches.png)
+Die TCP/IP-Protokollfamilie besteht heute aus vielen der in der folgenden Abbildung angegebenen Protokolle.
 
-Les protocoles sont empilés en couches. Pour utiliser un protocol application, on a alors besoin d'utiliser un ou plusieurs protocoles par couche inferieur et d'effectuer l'encapsulation.
+![TCP/IP-Protokollsuite](img/layeredprotocols.png)
 
-### Protocoles application
+Protokolle werden in Schichten gestapelt. Um ein Anwendungsprotokoll zu verwenden, müssen wir dann ein oder mehrere Protokolle pro unterer Schicht verwenden und die Kapselung durchführen.
 
-* **DNS** Pour Domaine Name System, permet de traduire le noms de domaine en adresses IP
-* **BOOTP** Prédécesseur de DHCP, il permet a une machine de connaitre son IP sur le réseau
-* **DHCP** Pour Dynamic Host Configuration, attribue dynamiquement des adresses IP aux clients et permet de réutiliser les adresses ip non utilisés.
-* **SMTP** Pour Simple Mail Transfert Protocol, permet aux client d'envoyer un email a un serveur de messagerie et au serveur d'envoyer ce mail à d'autres serveurs
-* **POP** Pour Post Office Protocol, permet de récupèrer des emails depuis un serveur de messagerie, ces emails sont téléchargés du serveur vers le bureau
-* **IMAP** Pour Internet Message Access Protocol, permet d'accèder aux emails d'un serveur de messagerie et conserve ces email a distance
-* **FTP** Pour File Transfert Protocol, définis les rêgles qui permettent à l'utilisateur d'un hôte d'accèder à des fichiers sur un autre hôte du réseau et de transfèrer des fichier vers cet hote distant
-* **TFTP** Pour Trivial file transfert protocol, permet de transfèrer des fichiers simples sans connexion et sans accusé de réception
-* **HTTP** Pour Hypertext Transfer Protocol, permet de transfèrer des mesdias, textes et graphiques sur le web.
+### Anwendungsprotokolle
 
-### Protocoles de transport
+* **DNS** Für Domain Name System, übersetzt Domänennamen in IP-Adressen
+* **BOOTP** Vorgänger von DHCP, ermöglicht es einem Rechner, seine IP im Netzwerk zu kennen
+* **DHCP** Für die dynamische Hostkonfiguration weist Clients IP-Adressen dynamisch zu und ermöglicht die Wiederverwendung nicht verwendeter IP-Adressen.
+* **SMTP** Für Simple Mail Transfer Protocol, ermöglicht es dem Client, eine E-Mail an einen Mailserver zu senden, und dem Server, diese E-Mail an andere Server zu senden
+* **POP** Für Post Office Protocol, ermöglicht Ihnen das Abrufen von E-Mails von einem Mailserver, diese E-Mails werden vom Server auf den Desktop heruntergeladen
+* **IMAP** Für Internet Message Access Protocol, ermöglicht den Zugriff auf E-Mails von einem Mailserver und speichert diese E-Mails remote
+* **FTP** Definiert für File Transfer Protocol die Regeln, die es dem Benutzer eines Hosts ermöglichen, auf Dateien auf einem anderen Host im Netzwerk zuzugreifen und Dateien an diesen Remote-Host zu übertragen
+* **TFTP** Für Trivial File Transfer Protocol, ermöglicht die Übertragung einfacher Dateien ohne Verbindung und ohne Empfangsbestätigung
+* **HTTP** Für Hypertext Transfer Protocol, ermöglicht Ihnen die Übertragung von Medien, Text und Grafiken im Internet.
 
-* **UDP** Pour User datagram Protocol, permet de transferer des paquet d'un hote vers un autre sans accusé de réception.
-* **TCP** Pour Transmission Control Protocol, permet une communication fiable entre les processus de deux hotes distants avec accusé de réception
+### Transportprotokolle
 
-### Protocoles Internet
+* **UDP** Für User Datagram Protocol, ermöglicht die Übertragung von Paketen von einem Host zum anderen ohne Empfangsbestätigung.
+* **TCP** Für Transmission Control Protocol, ermöglicht eine zuverlässige Kommunikation zwischen den Prozessen zweier entfernter Hosts mit Bestätigung
 
-* **IP** Pour Internet Protocol, permet de regrouper les messages en paquets et indiquer l'adresse de destination
-* **NAT** Permet de convertir les adresses locales en adresses globales sur le réseau mondial
-* **ICMP** Pour Internet Control Message Protocol, permet de signaler a l'hote distant les érreur survenues lors de la transmission
-* **OSPF** Pour Open Shortest Path First, permet de router les paquets dans la bonne direction par une conception hierarchique des zones
-* **EIGRP** Pour Enhaces Interior Gateway Routing Protocol, un protocol propriétaire Cisco permettant de donner une métrique apropriée en fonction de la bande passante
+### Internetprotokolle
 
-### Protocoles d'acces réseau
+* **IP** Für das Internetprotokoll, das verwendet wird, um Nachrichten in Paketen zu gruppieren und die Zieladresse anzugeben
+* **NAT** Konvertiert lokale Adressen in globale Adressen im globalen Netzwerk
+* **ICMP** Für das Internet Control Message Protocol, ermöglicht die Benachrichtigung des entfernten Hosts über Fehler, die während der Übertragung auftreten
+* **OSPF** Für Open Shortest Path First, ermöglicht das Routing von Paketen in die richtige Richtung durch ein hierarchisches Design von Bereichen
+* **EIGRP** Für das Enhaces Interior Gateway Routing Protocol, ein proprietäres Protokoll von Cisco, das es ermöglicht, eine geeignete Metrik entsprechend der Bandbreite anzugeben
 
-* **ARP** Pour Address Resolution Protocol, Fournis un mappage dynamique entre une adresse IP et une adresse physique
-* **PPP** Pour Piont-to-point Protocol, permet d'encapsuler les paquets pour les transmettre par une connexion série
-* **Ethernet** Le protocol le plus utilisé en local permettant de définir les rêgles de cablage et de signalisation
-* **Pilotes d'interface** Donne les instructions à l'ordinateur pour communiquer avec ses interfaces réseau
+### Netzwerkzugriffsprotokolle
 
-## Normes ouvertes
+* **ARP** für das Address Resolution Protocol, bietet eine dynamische Zuordnung zwischen einer IP-Adresse und einer physikalischen Adresse
+* **PPP** Ermöglicht für das Piont-to-Point-Protokoll die Kapselung der Pakete, um sie über eine serielle Verbindung zu übertragen
+* **Ethernet** Das lokal am häufigsten verwendete Protokoll, mit dem Verkabelungs- und Signalisierungsregeln definiert werden können
+* **Schnittstellentreiber** Weist den Computer an, mit seinen Netzwerkschnittstellen zu kommunizieren
 
-Avoir une norme ouverte permet de :
+## Offene Standards
 
-* Favoriser l'intercompatibilité des produits
-* Empecher le monopole d'un produit
+Mit einem offenen Standard können Sie:
 
-Une norme ouverte est gèrée par une organisme de normalisation qui est, le plus souvent, une association a but non lucratif qui ne sont liés a aucun constructeurs
+* Förderung der Produktkompatibilität
+* Verhindern Sie das Monopol eines Produkts
 
-### Organismes de normalisation Internet
+Ein offener Standard wird von einem Standardisierungsgremium verwaltet, bei dem es sich meist um einen gemeinnützigen Verein handelt, der nicht mit Herstellern verbunden ist.
 
-* **ISOC** Pour Internet Society, en charge de la promotion d'un internet libre
-* **IAB** Pour Internet archithecture Board, un comité en charge de la gestion et de développement des normes internet
-* **IETF** Pour Internet Engineering Task Force, un groupe de travail chargé de développer, mettre à jour et gèrer les téchnologies internet et TCP/IP par les documents de normalisation comme les RFC
-* **IRTF** Pour Internet Research Task Force, un groupe de travail de recherche à long terme sur Internet et TCP/IP dans le comaine de la cryptographie, de l'anti-spam et du peer-to-peer
-* **ICANN** Pour Internet Corporation for Assigned Names and Numbers, une association qui coordonne l'attribution des adresses IP et la gestion des noms de domaine
-* **IANA** Pour Internet Assigned Numbers Authority, une autorité chargée de superviser les adresse IP et les protocoles utilisés pour l'ICANN
+### Internet-Standardisierungsgremien
 
-### Organismes de normalisations electroniques et communication
+* **ISOC** Für die Internet Society, zuständig für die Förderung eines freien Internets
+* **IAB** Für Internet Architecture Board, ein Komitee, das für die Verwaltung und Entwicklung von Internetstandards zuständig ist
+* **IETF** Für die Internet Engineering Task Force, eine Arbeitsgruppe, die für die Entwicklung, Aktualisierung und Verwaltung von Internet- und TCP/IP-Technologien durch Standardisierungsdokumente wie RFCs verantwortlich ist
+* **IRTF** Für die Internet Research Task Force, eine langjährige Internet- und TCP/IP-Forschungs-Task Force in den Bereichen Kryptografie, Anti-Spam und Peer-to-Peer
+* **ICANN** For Internet Corporation for Assigned Names and Numbers, eine Vereinigung, die die Zuweisung von IP-Adressen und die Verwaltung von Domänennamen koordiniert
+* **IANA** Für Internet Assigned Numbers Authority, eine Behörde, die für die Überwachung der für ICANN verwendeten IP-Adressen und Protokolle verantwortlich ist
 
-* **IEEE** Pour Institute of Electrical and Electronics Engineers
-* **EIA** Pour Electronic Industries Alliance, alliance commercial de normalisation de cables et des communications en racks notemment
-* **TIA** Pour Telecommunications Industry Association, une association responsable des normes de communications dans de nombreux domaines
-* **ITU-T** Pour Secteur de la normalisation des télécommunications de l'Union internationale des télécommunications, l'un des plus anciens organismes de normalisation qui definis les normes de compression video notemment.
+### Elektronische Standardisierungsorganisationen und Kommunikation
 
-## Modèle en couches
+* **IEEE** Für Institute of Electrical and Electronics Engineers
+* **EIA** Für Electronic Industries Alliance, Handelsallianz zur Standardisierung von Kabeln und Kommunikation insbesondere in Racks
+* **TIA** Für die Telecommunications Industry Association, eine Vereinigung, die für Kommunikationsstandards in vielen Bereichen verantwortlich ist
+* **ITU-T** Für den Telecommunication Standardization Sector der International Telecommunication Union, eine der ältesten Standardisierungsorganisationen, die Videokomprimierungsstandards definiert.
 
-Nous représentons maintenant notre réseau en couches successives en suivant 2 modèles :
+## Schichtenmodell
 
-* **Modèle protocol** Ce modèle suite une suite de protocole définis, cette fonction est assurée par le modèle TCP/IP
-* **Modèle réferant** Assure une cohérence générale de chaque opération à effectuer dans chaque couche, ce modèle est assuré par le modèle OSI
+Wir stellen unser Netzwerk nun in aufeinanderfolgenden Schichten dar, indem wir 2 Modelle befolgen:
 
-![Comparaison des deux modèles](img/deuxmodèles.png)
+* **Protokollmodell** Dieses Modell folgt einer definierten Protokollsuite, diese Funktion wird vom TCP/IP-Modell bereitgestellt
+* **Referenzmodell** Stellt die allgemeine Konsistenz jeder auszuführenden Operation in jeder Schicht sicher, dieses Modell wird vom OSI-Modell bereitgestellt
 
-### Modèle OSI
+![Vergleich der beiden Modelle](img/twomodels.png)
 
-Le modèle ISO se constitue de 7 couches successives : 
+### OSI-Modell
 
-* **7.Application** Contient des protocoles utilisés pour les communications de processus à processus
-* **6.Présentation** Fournit une représentation commune des données transférées entre des services de couche application
-* **5.Session** Fournit des services à la couche présentation pour organiser son dialogue et gérer l'échange de données
-* **4.Transport** Définit des services pour segmenter, transférer et réassembler les données de communications individuelles entre les périphériques finaux
-* **3.Réseau** Fournit des services pour échanger les parties de données individuelles sur le réseau entre des périphériques finaux identifiés
-* **2.Liaison de données** Liaison de données décrivent des méthodes d'échange de trames de données entre des périphériques sur un support commun
-* **1.Physique** Décris les moyens mécaniques, électriques, fonctionnels et méthodologiques permettant d'activer, de gérer et de désactiver des connexions physiques pour la transmission de bits vers et depuis un périphérique réseau.
+Das ISO-Modell besteht aus 7 aufeinanderfolgenden Schichten:
 
-### Modèle TCP/IP
+* **7.Application** Enthält Protokolle, die für die Prozess-zu-Prozess-Kommunikation verwendet werden
+* **6.Präsentation** Bietet eine gemeinsame Darstellung von Daten, die zwischen Diensten der Anwendungsschicht übertragen werden
+* **5.Session** Stellt Dienste für die Präsentationsschicht bereit, um ihren Dialog zu organisieren und den Datenaustausch zu verwalten
+* **4.Transport** Definiert Dienste zum Segmentieren, Übertragen und Wiederzusammensetzen individueller Kommunikationsdaten zwischen Endgeräten
+* **3.Netzwerk** Bietet Dienste zum Austausch einzelner Daten über das Netzwerk zwischen identifizierten Endgeräten
+* **2.Data Link** Data Link beschreibt Verfahren zum Austausch von Datenrahmen zwischen Geräten über ein gemeinsames Medium
+* **1.Physisch** Beschreiben Sie die mechanischen, elektrischen, funktionalen und methodischen Mittel zum Aktivieren, Verwalten und Deaktivieren physischer Verbindungen für die Übertragung von Bits zu und von einem Netzwerkgerät.
 
-Composé de seulement 4 couches définis par les protocoles utilisés :
+### TCP/IP-Modell
 
-* **4.Application** Les données utiles pour l'utilisateur et les controles de dialogues
-* **3.Transport** Prend en charge la communication entre plusieurs périphériques au travers du réseau
-* **2.Internet** Determine le meilleur chemin réseau
-* **1.Acces réseau** Contrôle les périphériques matériels et les supports qui constituent le réseau
+Bestehend aus nur 4 Schichten, die durch die verwendeten Protokolle definiert sind:
 
-## Transfert de données
+* **4.Anwendung** Nützliche Benutzerdaten und Dialogsteuerung
+* **3.Transport** Unterstützt die Kommunikation zwischen mehreren Geräten über das Netzwerk
+* **2.Internet** Ermittelt den besten Netzwerkpfad
+* **1.Netzwerkzugriff** Steuert die Hardwaregeräte und Medien, aus denen das Netzwerk besteht
 
-Les données à transferer ne peuvent être envoyées toute d'un coup car cela poserais des problèmes de données. Il faut prendre en compte deux systèmes permettant d'optimiser le flux de données et de donner la possibilité a tous de communiquer
+## Datentransfer
 
-### Segmentation
+Die zu übertragenden Daten können nicht auf einmal gesendet werden, da dies zu Datenproblemen führen würde. Es müssen zwei Systeme berücksichtigt werden, die es ermöglichen, den Datenfluss zu optimieren und allen die Möglichkeit zur Kommunikation zu geben
 
-Pour réduire la quantitée des données à transmettre, on divise les données en plusieurs trames différentes.
+### Segmentierung
 
-### Multiplexage
+Um die zu übertragende Datenmenge zu reduzieren, werden die Daten in mehrere unterschiedliche Frames aufgeteilt.
 
-Pour donner la chance à chaque hote sa chance de communiquer on entremèle les données de chaque hote permettant de mixer les paquets transmis.
+### Multiplexing
 
-### Transformation des trames
+Um jedem Host die Möglichkeit zu geben, zu kommunizieren, werden die Daten jedes Hosts gemischt, wodurch die übertragenen Pakete gemischt werden können.
 
-Lors de l'emission de données par une application, les données passent par la pile de protocoles permettant d'encapuler les données pour finir sur le canal de communication.
+### Frames umwandeln
 
-1. Les donnes sont constutués pour être envoyés
-2. Les données sont divisés en segments
-3. Les segments sont encapsulés suivant la pile de protocoles
-4. Les paquets sont constitués pour être envoyés sur le réseau
-5. Les bits de la trame sont voyés sur le support physique
+Während der Übertragung von Daten durch eine Anwendung durchlaufen die Daten den Stapel von Protokollen, wodurch es möglich wird, die Daten einzukapseln, um auf dem Kommunikationskanal zu landen.
 
-![Pile d'encapsulation](img/pileproto.png)
+1. Deals werden gemacht, um versendet zu werden
+2. Daten werden in Segmente unterteilt
+3. Segmente werden entsprechend dem Protokollstapel gekapselt
+4. Pakete sollen über das Netzwerk gesendet werden
+5. Die Bits des Frames sind auf dem physischen Medium zu sehen
 
-### Desencapsulation
+![Kapselungsstapel](img/stackproto.png)
 
-Lors de la récéption de la trame, les données sont décapulés dans le sens inverse de l'encapsulation.
+### Entkapselung
 
-![Desencapsulation](img/desen.png)
+Wenn der Frame empfangen wird, werden die Daten in der entgegengesetzten Richtung der Kapselung entkapselt.
 
-### Adresses réseau
+![Entkapselung](img/desen.png)
 
-Pour communiquer, il faut un couple d'adresse.
+### Netzwerkadressen
 
-* **Adresse source** d'ou proviennent les données
-* **Adresse de destination** ou vons les données
+Um zu kommunizieren, benötigen Sie ein paar Adressen.
 
-Chacune des couches dispose de sa propre methode de transmission mais les adresses ne sont employés que dans la couche réseau et la couche liaison de données.
+* **Quelladresse** woher die Daten kommen
+* **Zieladresse**, an die die Daten gesendet werden
 
-* **Couche liaison de données** (adresse MAC) L'adresse est utilisée pour le transfert de carte à carte sur le même réseau. Ainsi la trame de cette couche change des qu'elle est transfèrée sur une réseau différent par le biais d'un routeur.
-* **Couche réseau** (adresse IP) L'adresse est utilisée de la source jusqu'a la destination même s'il ne sont pas sur le même réseau elle est composée d'une partie réseau et d'une partie hote
+Jede der Schichten hat ihre eigene Übertragungsmethode, aber die Adressen werden nur in der Vermittlungsschicht und der Datenverbindungsschicht verwendet.
 
-![Structure des adresses](img/adressage.png)
+* **Data Link Layer** (MAC-Adresse) Die Adresse wird für die Übertragung von Karte zu Karte im selben Netzwerk verwendet. Somit ändert sich der Rahmen dieser Schicht, sobald er über einen Router in ein anderes Netz übertragen wird.
+* **Netzwerkschicht** (IP-Adresse) Die Adresse wird von der Quelle bis zum Ziel verwendet, auch wenn sie sich nicht im selben Netzwerk befinden, sie besteht aus einem Netzwerkteil und einem Hostteil
+
+![Adressaufbau](img/addressage.png)
