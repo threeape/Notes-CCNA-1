@@ -27,7 +27,8 @@ Die Rohnachricht, auch verschlüsselt, kann nicht so wie sie im Netz ist versend
 
 Bei einem HTTP-Frame wird beispielsweise der Inhalt der anzuzeigenden Seite in den Benutzerdaten gefunden, dann fügt eine Kapselungsserie Informationen zum Frame hinzu, um sein Ziel, die Version der verwendeten Protokolle und viele andere anzugeben .'anderes Zeug.
 
-![Ein HTTP-Frame](img/framehttp.png)
+![Une trame HTTP](img/tramehttp.png)
+
 
 ### Schneiden
 
@@ -62,11 +63,12 @@ Ein Protokoll kann sein:
 
 Es gibt viele Arten von Protokollen, aber hier sind einige Beispiele
 
-![Einige Protokollstacks](img/protocols.png)
+![Quelques piles de protocoles](img/protocoles.png)
 
 Die TCP/IP-Protokollfamilie besteht heute aus vielen der in der folgenden Abbildung angegebenen Protokolle.
 
-![TCP/IP-Protokollsuite](img/layeredprotocols.png)
+![Suite de protocoles TCP/IP](img/protocolsEnCouches.png)
+
 
 Protokolle werden in Schichten gestapelt. Um ein Anwendungsprotokoll zu verwenden, müssen wir dann ein oder mehrere Protokolle pro unterer Schicht verwenden und die Kapselung durchführen.
 
@@ -199,4 +201,4 @@ Jede der Schichten hat ihre eigene Übertragungsmethode, aber die Adressen werde
 * **Data Link Layer** (MAC-Adresse) Die Adresse wird für die Übertragung von Karte zu Karte im selben Netzwerk verwendet. Somit ändert sich der Rahmen dieser Schicht, sobald er über einen Router in ein anderes Netz übertragen wird.
 * **Netzwerkschicht** (IP-Adresse) Die Adresse wird von der Quelle bis zum Ziel verwendet, auch wenn sie sich nicht im selben Netzwerk befinden, sie besteht aus einem Netzwerkteil und einem Hostteil
 
-![Adressaufbau](img/addressage.png)
+![Structure des adresses](img/adressage.png)
