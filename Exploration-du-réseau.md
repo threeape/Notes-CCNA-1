@@ -1,152 +1,153 @@
-# Chapitre 1 : Exploration du réseau
 
-## Connecté au monde entier
+# Kapitel 1: Netzwerkerkundung
 
-Aujourd'hui, la communication rapide et efficace est très importante dans notre société. Son évolution fut rapide et de grandes choses sont encore à venir permettant ainsi d'abolir les frontières géographiques.
+## Mit der ganzen Welt verbunden
 
-Il existe tous types de réseaux qu'ils soient humains ou informatiques. Les réseaux sont alors utiles pour partager et opérer à l'echelle personnelle mais aussi à l'echelle de l'entreprise.
+Heutzutage ist eine schnelle und effektive Kommunikation in unserer Gesellschaft sehr wichtig. Seine Entwicklung war schnell und große Dinge stehen noch bevor, wodurch es möglich wurde, geografische Grenzen abzuschaffen.
 
-Aujourd'hui on utilise le réseau informatique pour de multiples usages, on le nomme donc réseau convergé.
+Es gibt alle Arten von Netzwerken, ob Mensch oder Computer. Netzwerke sind dann nützlich für die gemeinsame Nutzung und den Betrieb auf persönlicher Ebene, aber auch auf Unternehmensebene.
 
-## Clients et serveurs
+Heutzutage nutzen wir das Computernetzwerk für mehrere Zwecke, daher wird es als konvergentes Netzwerk bezeichnet.
 
-Tous les ordinateurs et machines utilisant le réseau sont des hôtes (aussi appelés périphériques finaux). Les serveurs sont des logiciels qui mettent a disposition leurs services. Les clients sont des logiciels permettant de demander des informations aux serveurs pour qu'elles soient utilisés par l'utilisateur.
+## Clients und Server
 
-> Exemple: Un serveur Web permet de mettre a disposition sur le réseau, des pages web obtenues via HTTP. Firefox ou Google Chrome sont des clients qui vont contacter le serveur pour obtenir la page demandée.
+Alle Computer und Maschinen, die das Netzwerk nutzen, sind Hosts (auch Endgeräte genannt). Server sind Software, die ihre Dienste bereitstellt. Clients sind Softwareprogramme, die Informationen von Servern zur Verwendung durch den Benutzer anfordern.
 
-### Peer to peer
+> Beispiel: Ein Webserver ermöglicht es, über HTTP bezogene Webseiten im Netzwerk verfügbar zu machen. Firefox oder Google Chrome sind Clients, die den Server kontaktieren, um die angeforderte Seite zu erhalten.
 
-Il peut arriver qu'un hôte tienne tienne à la fois le rôle de client et de serveur, ainsi chaque hôte peut recevoir et transmettre l'information. On apelle ce réseau un réseau peer to peer.
+### Peer-To-Peer
 
-**Avantages**
+Manchmal kann ein Host sowohl als Client als auch als Server fungieren, sodass jeder Host Informationen empfangen und übertragen kann. Dieses Netzwerk wird Peer-to-Peer-Netzwerk genannt.
 
-* Facile à configurer
-* Moins de compléxité
-* Cout inférieur
-* Utilisable pour des tâches simples comme le transfert de fichiers
+**Vorteile**
 
-**Inconvénients**
+* Einfach zu konfigurieren
+* Weniger Komplexität
+* Niedrigere Kosten
+* Verwendbar für einfache Aufgaben wie das Übertragen von Dateien
 
-* Pas d'administration centralisée
-* Peu de sécurité
-* Non évolutif
-* Performances ralenties
+**Nachteile**
 
-## Composants réseaux
+* Keine zentralisierte Verwaltung
+* Wenig Sicherheit
+* Nicht skalierbar
+* Langsame Leistung
 
-La structure d'un réseau est composée de 3 grandes parties:
+## Netzwerkkomponenten
 
-* Les appareils
-* Les supports
-* Les services
+Die Struktur eines Netzwerks besteht aus 3 Hauptteilen:
 
-Les périphériques sont reliés entre eux au travers d'une carte réseau permettant d'encoder ou de décoder les données sur le réseau. Ces cartes réseaux sont en contact avec un support de communication par l'intermédiaire d'une interface représentant un port physique.
+* Elektronik
+* Medien
+* Dienstleistungen
 
-### Les périphériques finaux
+Peripheriegeräte sind über eine Netzwerkkarte miteinander verbunden, um Daten im Netzwerk zu codieren oder zu decodieren. Diese Netzwerkkarten stehen über eine einen physikalischen Port darstellende Schnittstelle mit einem Kommunikationsmedium in Kontakt.
 
-Les machines qui reçoivent et envoient des données. Cela peuvent être des machines hébergeant des serveurs ou des clients.
+### Endgeräte
 
-> Exemples : Ordinateur, Téléphone IP, Imprimante
+Maschinen, die Daten empfangen und senden. Dies können Maschinen sein, die Server oder Clients hosten.
 
-### Périphériques réseaux
+> Beispiele: Computer, IP-Telefon, Drucker
 
-Des machines permettant de correctement transmettre les données sur le réseau. Ils utilisent les adresse d'emission et de réception pour transmettre les paquets au bon endroit. Il permettent les opérations suivantes :
+### Netzwerkgeräte
 
-* Régénérer et retransmettre les signaux réseaux
-* Gérer des informations indiquant les chemins qui existent à travers le réseau
-* Indiquer aux autres périphériques les erreurs de communication
-* Diriger des données vers d'autres chemins en cas d'échec de liaison
-* Classifier et diriger les messages en fonction des priorités
-* Autoriser ou refuser le flux de données selon les paramètres de sécurité
+Maschinen zur korrekten Übertragung von Daten im Netzwerk. Sie verwenden Sende- und Empfangsadressen, um Pakete an die richtige Stelle zu senden. Es erlaubt die folgenden Operationen:
 
-### Support
+* Regenerieren und erneutes Übertragen von Netzwerksignalen
+* Verwalten Sie Informationen, die die Pfade angeben, die durch das Netzwerk existieren
+* Benachrichtigen Sie andere Geräte über Kommunikationsfehler
+* Leiten Sie Daten bei Bindungsfehlern an alternative Pfade
+* Nachrichten nach Prioritäten klassifizieren und leiten
+* Datenfluss gemäß Sicherheitseinstellungen zulassen oder verweigern
 
-Le support fournis le canal sur lequel se déplace le signal représentant les paquets. Le support peut etre de 3 types différents:
+### Die Unterstützung
 
-* Fil métalique (cuivre) les données transitent sous forme élécrique
-* Fibre de verre ou plastique (fibre optique) les données sont sous forme de lumière
-* Sans fil les données sont codées suivant une longueur d'onde éléctromagnetique
+Das Medium stellt den Kanal bereit, über den sich das die Pakete darstellende Signal bewegt. Die Unterstützung kann von 3 verschiedenen Arten sein:
 
-On choisis le type de support à utiliser en fonction de :
+* Metalldraht (Kupfer) überträgt die Daten in elektrischer Form
+* Glasfaser- oder Kunststoffdaten (Lichtwellenleiter) liegen in Form von Licht vor
+* Wireless Die Daten werden entsprechend einer elektromagnetischen Wellenlänge codiert
 
-* La distance maximale sur laquelle les supports peuvent transporter le signal
-* L'environnement dans lequel les supports sont installés
-* La quantité de données a transporter
-* Le coût envisageable pour l'installation
+Die Art der zu verwendenden Stütze wird ausgewählt nach:
 
-## Types de réseau
+* Die maximale Entfernung, über die die Träger das Signal übertragen können
+* Die Umgebung, in der die Halterungen installiert sind
+* Die zu transportierende Datenmenge
+* Die möglichen Kosten für die Installation
 
-les inftrastructures réseaux peuvent varier en fonction de :
+## Netzwerktypen
 
-* La taille de la zone couverte
-* Le nombre d'utilisateurs
-* Les services disponibles
+Netzwerkinfrastrukturen können variieren je nach:
 
-Parmis les infrastructures principales on trouve : 
+* Die Größe der abgedeckten Fläche
+* Die Anzahl der Benutzer
+* Dienstleistungen verfügbar
 
-* **LAN (Local Area Network) ou réseau local** Un réseau peu étendu géographiquement, le plus souvent un réseau de petite entreprise ou domestique. Ce réseau permet une grande bande passante
-* **WAN (Wide Area Network) ou réseau étendu** Un réseau de taille plus importante géorgraphiquement géré per un prestataire réseau.
-* **MAN (Metropolitan Area Network) ou réseau intermédiaire** Réseau d'une grande entreprise plus grande qu'un LAN mais plus petite qu'un WAN
-* **WLAN (Wireless LAN) ou réseau sans fil** Un réseau similaire au LAN mais sans fil
-* **SAN (Storage Area Network) ou réseau de stockage** Réseau permettant la transmission de fichiers et la sauvegarde de ceux-ci
+Zu den wichtigsten Infrastrukturen gehören:
+
+* **LAN (Local Area Network) oder lokales Netzwerk** Ein geografisch kleines Netzwerk, meistens ein kleines Unternehmens- oder Heimnetzwerk. Dieses Netzwerk ermöglicht eine große Bandbreite
+* **WAN (Wide Area Network) oder erweitertes Netzwerk** Ein geografisch größeres Netzwerk, das von einem Netzwerkanbieter verwaltet wird.
+* **MAN (Metropolitan Area Network) oder Intermediate Network** Großes Firmennetzwerk größer als ein LAN, aber kleiner als ein WAN
+* **WLAN (Wireless LAN) oder drahtloses Netzwerk** Ein LAN-ähnliches, aber drahtloses Netzwerk
+* **SAN (Storage Area Network) oder Speichernetzwerk** Netzwerk, das die Übertragung von Dateien und deren Sicherung ermöglicht
 
 ### Internet
 
-Internet est un ensemble de réseaux WAN permettenat d'interconnecter une grande partie de la planète. Internet n'est pas détenu par une personne mais chacun des réseaux y participe.
+Das Internet ist eine Reihe von WAN-Netzwerken, die einen großen Teil des Planeten miteinander verbinden. Das Internet gehört nicht einer Person, sondern jedes der Netzwerke ist daran beteiligt.
 
-### Intranet & extranet
+### Intranet und Extranet
 
-Le terme intranet fait référence a un réseau de taille réduite appartenant à une entreprise ou à une organisation.
+Der Begriff Intranet bezeichnet ein kleines Netzwerk, das einem Unternehmen oder einer Organisation gehört.
 
-L'extranet est un service réseau fourni par une entreprise ou une organisation pour permettre d'interagir avec elle de l'exterieur de son réseau LAN ou MAN.
+Das Extranet ist ein Netzwerkdienst, der von einem Unternehmen oder einer Organisation bereitgestellt wird, um eine Interaktion mit ihm von außerhalb seines LAN- oder MAN-Netzwerks zu ermöglichen.
 
-### Accès a internet
+### Internet Zugang
 
-L'accès a internet peut s'effectuer par plusieurs supports : 
+Der Zugriff auf das Internet kann über mehrere Medien erfolgen:
 
-* **DSL** On utilise le réseau téléphonique avec la téchnologie DSL pour transmettre les données
-* **Câble** On se connecte directement au réseau par un câble spécifique
-* **Cellulaire** On utilise un signal sans fil téléphonique pour communiquer sur le réseau
-* **Satellite** On se connecte au réseau par l'intermédiaire d'un satellite, plus utile dans les régions reculées
-* **Ligne commutée** Une connexion à faible débit 
+* **DSL** Zur Datenübertragung nutzen wir das Telefonnetz mit DSL-Technologie
+* **Kabel** Wir verbinden uns direkt mit dem Netzwerk über ein spezielles Kabel
+* **Mobilfunk** Wir verwenden ein drahtloses Telefonsignal, um im Netzwerk zu kommunizieren
+* **Satellit** Wir verbinden uns mit dem Netzwerk über einen Satelliten, der in abgelegenen Gebieten nützlicher ist
+* **Einwahl** Eine langsame Verbindung
 
-## Archithectures de réseaux
+## Netzwerkarchitekturen
 
-Les réseaux permettant aujourd'hui de relier tout les types de médias qu'ils soient destinés à la diffusion, au téléphone ou à la transmission de données informatiques doivent être :
+Die Netzwerke, die es heute ermöglichen, alle Arten von Medien zu verbinden, egal ob sie für Rundfunk, Telefon oder Computerdatenübertragung bestimmt sind, müssen:
 
-* Tolérents aux pannes : Le réseau doit toujours être disponible malgré la panne d'un élément de celui-ci
-* Évolutifs : Permettant de s'agrandir rapidement pour accueillir de nouveaux périphériques
-* Qualitatifs : Permettant d'optimiser les transferts pour obtenir un débit le plus élevé possible
-* Sécurisés : Permettant de conserver la confidentialité, l'intégrité et la disponibilité des échanges
+* Fehlertolerant: Das Netzwerk muss trotz Ausfall eines Elements immer verfügbar sein
+* Skalierbar: So können Sie schnell erweitern, um neue Geräte aufzunehmen
+* Qualitativ: Ermöglicht die Optimierung von Übertragungen, um den höchstmöglichen Durchsatz zu erzielen
+* Sicher: Ermöglicht die Wahrung der Vertraulichkeit, Integrität und Verfügbarkeit des Austauschs
 
-## Expansion des usages
+## Erweiterung der Nutzungsmöglichkeiten
 
-Aujourd'hui, on remarque une augmentation des usages d'internet au quotidien sur de nombreux nouveaux usages : 
+Heute stellen wir eine Zunahme der täglichen Internetnutzung für viele neue Anwendungen fest:
 
-* **BYOD (Bring Your Own Device)** On laisse la possibilité à l'utilisateur d'utiliser le périphérique final qu'il désire pour se connecter au réseau
-* **Collaboration en ligne**
-* **Communication vidéo**
-* **Cloud computing** Permettant de stocker une masse de données sur internet sans avoir besoin de mobiliser sa propre équipe ou ses propres équipements
+* **BYOD (Bring Your Own Device)** Wir überlassen dem Nutzer die Möglichkeit, sein gewünschtes Endgerät mit dem Netzwerk zu verbinden
+* **Online-Zusammenarbeit**
+* **Videokommunikation**
+* **Cloud-Computing** Ermöglicht die Speicherung einer Masse von Daten im Internet, ohne dass Sie Ihr eigenes Team oder Ihre eigene Ausrüstung mobilisieren müssen
 
-On utilise aussi de nouveau moyens de connecter les appreils finaux : 
+Auch bei der Anbindung von Endgeräten nutzen wir neue Wege:
 
-* **Courant porteur** Les câbles domestiques d'alimentation sont utilisés pour transmettre des données
-* **Haut débit sans fil** Utilisant la technologie cellulaire
+* **Powerline** Haushaltsstromkabel werden zur Datenübertragung verwendet
+* **Wireless Broadband** Mit Mobilfunktechnologie
 
-## Sécurité
+## Sicherheit
 
-La sécurité d'un réseau est primordiale et on doit mettre en place des systèmes permettant d'empêcher toutes les menaces exterieures :
+Die Sicherheit eines Netzwerks ist von grundlegender Bedeutung, und es müssen Systeme eingerichtet werden, um alle externen Bedrohungen zu verhindern:
 
-* **Virus, vers et cheval de troie** Des logiciels executant du code malveillant sur le périphérique utilisateur
-* **Spyware ou Adware** Des logiciels qui collectent des données sur le système utilisateur
-* **Zero day** Attaques le jour de la détection de la vulnérabilité
-* **Attaque pirate** Attaques effectuée par une personne ayant de solides conaissances du réseau
-* **Vol de données**
-* **Usurpation d'identitée**
+* **Viren, Würmer und Trojaner** Software, die schädlichen Code auf dem Gerät des Benutzers ausführt
+* **Spyware oder Adware** Software, die Daten auf dem System des Benutzers sammelt
+* **Zero Day** Angriffe am Tag der Schwachstellenerkennung
+* **Hackerangriff** Angriffe, die von einer Person mit soliden Kenntnissen des Netzwerks ausgeführt werden
+* **Datendiebstahl**
+* **Nachahmung**
 
-Il n'existe pas de solution maîtresse permettant de sécuriser un réseau mais on peut mettre en place un ensemble de solutions :
+Es gibt keine Masterlösung zum Sichern eines Netzwerks, aber eine Reihe von Lösungen kann implementiert werden:
 
-* Installer des antivirus et anti-logiciels espions
-* Installer un pare-feu visant à filtrer les données qui entrent et sortent du réseau
-* Préciser les accès de chaque personne aux ressources du réseau
-* Des réseaux privés virtuels permettant un accès sécurisé hors du réseau LAN
+* Installieren Sie Antivirus und Anti-Spyware
+* Installieren Sie eine Firewall, um Daten zu filtern, die in das Netzwerk ein- und ausgehen
+* Geben Sie den Zugriff jeder Person auf Netzwerkressourcen an
+* Virtuelle private Netzwerke, die einen sicheren Zugriff außerhalb des LAN-Netzwerks ermöglichen
