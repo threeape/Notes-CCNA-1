@@ -136,7 +136,7 @@ Wir stellen unser Netzwerk nun in aufeinanderfolgenden Schichten dar, indem wir 
 * **Protokollmodell** Dieses Modell folgt einer definierten Protokollsuite, diese Funktion wird vom TCP/IP-Modell bereitgestellt
 * **Referenzmodell** Stellt die allgemeine Konsistenz jeder auszuführenden Operation in jeder Schicht sicher, dieses Modell wird vom OSI-Modell bereitgestellt
 
-![Vergleich der beiden Modelle](img/twomodels.png)
+![Comparaison des deux modèles](img/deuxmodèles.png)
 
 ### OSI-Modell
 
@@ -181,13 +181,13 @@ Während der Übertragung von Daten durch eine Anwendung durchlaufen die Daten d
 4. Pakete sollen über das Netzwerk gesendet werden
 5. Die Bits des Frames sind auf dem physischen Medium zu sehen
 
-![Kapselungsstapel](img/stackproto.png)
+![Pile d'encapsulation](img/pileproto.png)
 
 ### Entkapselung
 
 Wenn der Frame empfangen wird, werden die Daten in der entgegengesetzten Richtung der Kapselung entkapselt.
 
-![Entkapselung](img/desen.png)
+![Desencapsulation](img/desen.png)
 
 ### Netzwerkadressen
 
